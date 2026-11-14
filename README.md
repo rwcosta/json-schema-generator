@@ -22,7 +22,7 @@ Abra o endereço local exibido pelo Vite. Não abra `index.html` por `file://`: 
 1. Cole um JSON válido no editor da esquerda ou carregue o exemplo.
 2. Clique em **Gerar Schema** ou pressione **Ctrl+Enter** (macOS: **⌘+Enter**) no editor.
 3. Revise o resultado à direita.
-4. Use **Copiar Schema** ou **Baixar JSON**.
+4. Use o ícone de dois quadrados no canto superior direito de cada editor para copiar o JSON de entrada ou o schema gerado. **Baixar JSON** permanece na barra inferior.
 5. Use **Limpar** para apagar os dois campos.
 
 Editar a entrada torna a saída anterior desatualizada e bloqueia cópia/download até uma nova geração. O botão **Cancelar** interrompe uma geração em andamento. Há temas claro e escuro, com preferência salva localmente. Os JSONs não são persistidos.

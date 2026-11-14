@@ -17,6 +17,7 @@ function element<T extends HTMLElement>(id: string): T {
 const generateButton = element<HTMLButtonElement>("generate");
 const cancelButton = element<HTMLButtonElement>("cancel");
 const copyButton = element<HTMLButtonElement>("copy");
+const copyInputButton = element<HTMLButtonElement>("copy-input");
 const downloadButton = element<HTMLButtonElement>("download");
 const themeButton = element<HTMLButtonElement>("theme");
 const message = element("message");
@@ -136,6 +137,7 @@ const output = new EditorView({
 
 function updateInputCount(): void {
   inputCount.textContent = `${input.state.doc.length.toLocaleString("pt-BR")} caracteres`;
+  copyInputButton.disabled = input.state.doc.length === 0;
 }
 updateInputCount();
 
@@ -270,6 +272,30 @@ element("clear").addEventListener("click", () => {
   updateActions();
   notify("Campos limpos. Cole um novo JSON para começar.");
   input.focus();
+});
+copyInputButton.addEventListener("click", async () => {
+  const text = input.state.doc.toString();
+  if (!text) return;
+  const copiedRevision = revision;
+  try {
+    await navigator.clipboard.writeText(text);
+    if (revision === copiedRevision)
+      notify(
+        "JSON de entrada copiado para a área de transferência.",
+        "success",
+      );
+  } catch {
+    if (revision === copiedRevision) {
+      input.focus();
+      input.dispatch({
+        selection: { anchor: 0, head: input.state.doc.length },
+      });
+      notify(
+        "O navegador bloqueou a cópia automática. O JSON está selecionado; use Ctrl+C ou ⌘C.",
+        "error",
+      );
+    }
+  }
 });
 copyButton.addEventListener("click", async () => {
   if (!current) return;

@@ -320,6 +320,24 @@ h2 {
 .file-tag.generated {
   color: var(--accent);
 }
+.copy-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+.copy-icon:not(:disabled):hover {
+  color: var(--accent);
+  background: var(--subtle);
+  border-color: var(--line);
+}
 .editor-host {
   height: 365px;
   overflow: hidden;
@@ -765,7 +783,7 @@ footer > span {
   }
   .result-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .secondary-button {
     justify-content: center;
