@@ -128,7 +128,9 @@ describe("Draft 2019-09 generation", () => {
       if (!value || typeof value !== "object") return;
       for (const [key, child] of Object.entries(value)) {
         expect(forbidden).not.toContain(key);
-        inspect(child);
+        // Names under properties belong to the input, not to schema keywords.
+        if (key === "properties") Object.values(child as object).forEach(inspect);
+        else inspect(child);
       }
     }
     inspect(JSON.parse(schema));

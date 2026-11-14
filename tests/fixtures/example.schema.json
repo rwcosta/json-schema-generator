@@ -1,33 +1,119 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "type": "object",
-  "required": ["account_id", "content"],
+  "required": [
+    "data",
+    "included"
+  ],
   "properties": {
-    "account_id": {
-      "type": "integer"
-    },
-    "content": {
+    "data": {
       "type": "array",
       "items": {
         "type": "object",
         "required": [
-          "contract_number",
-          "original_debt_amount",
-          "contract_date",
-          "active"
+          "type",
+          "id",
+          "attributes",
+          "relationships"
         ],
         "properties": {
-          "contract_number": {
-            "type": "integer"
-          },
-          "original_debt_amount": {
-            "type": "number"
-          },
-          "contract_date": {
+          "type": {
             "type": "string"
           },
-          "active": {
-            "type": "boolean"
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "required": [
+              "title",
+              "body",
+              "created",
+              "updated"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string"
+              },
+              "updated": {
+                "type": "string"
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "required": [
+              "author"
+            ],
+            "properties": {
+              "author": {
+                "type": "object",
+                "required": [
+                  "data"
+                ],
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "type"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "included": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "id",
+          "attributes"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "required": [
+              "name",
+              "age",
+              "gender"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "age": {
+                "type": "integer"
+              },
+              "gender": {
+                "type": "string"
+              }
+            }
           }
         }
       }

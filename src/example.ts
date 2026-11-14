@@ -1,12 +1,33 @@
-// Keep this as text: 10444.0100 must not pass through a JavaScript number.
 export const EXAMPLE = `{
-  "account_id": 367485,
-  "content": [
+  "data": [
     {
-      "contract_number": 2673463374,
-      "original_debt_amount": 10444.0100,
-      "contract_date": "2024-01-09",
-      "active": true
+      "type": "articles",
+      "id": "1",
+      "attributes": {
+        "title": "JSON:API paints my bikeshed!",
+        "body": "The shortest article. Ever.",
+        "created": "2015-05-22T14:56:29.000Z",
+        "updated": "2015-05-22T14:56:28.000Z"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "id": "42",
+            "type": "people"
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "people",
+      "id": "42",
+      "attributes": {
+        "name": "John",
+        "age": 80,
+        "gender": "male"
+      }
     }
   ]
 }`;
