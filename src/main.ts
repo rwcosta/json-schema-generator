@@ -66,7 +66,6 @@ function applyTheme(): void {
     dark ? "Ativar tema claro" : "Ativar tema escuro",
   );
   themeButton.setAttribute("aria-pressed", String(!dark));
-  themeButton.textContent = dark ? "☼" : "☾";
 }
 applyTheme();
 
