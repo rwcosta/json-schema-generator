@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "type": "object",
+  "required": ["account_id", "content"],
+  "properties": {
+    "account_id": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "contract_number",
+          "original_debt_amount",
+          "contract_date",
+          "active"
+        ],
+        "properties": {
+          "contract_number": {
+            "type": "integer"
+          },
+          "original_debt_amount": {
+            "type": "number"
+          },
+          "contract_date": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

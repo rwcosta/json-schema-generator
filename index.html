@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101715" />
+    <meta
+      name="description"
+      content="Gere JSON Schemas Draft 2019-09 a partir de exemplos. Gratuito, sem cadastro e com processamento no seu navegador."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101715'/%3E%3Ctext x='32' y='43' fill='%23c8f785' text-anchor='middle' font-family='monospace' font-size='36'%3E%7B%7D%3C/text%3E%3C/svg%3E"
+    />
+    <title>JSON Schema Generator — JSON para Schema</title>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <a href="./" class="brand" aria-label="JSON Schema Generator — início"
+          ><span class="brand-mark" aria-hidden="true">{ }</span
+          ><span>JSON Schema<span class="brand-sub">Generator</span></span></a
+        >
+        <nav aria-label="Navegação principal">
+          <a href="#regras" class="rules-link"
+            >Como funciona <span aria-hidden="true">↗</span></a
+          >
+          <a
+            href="https://github.com/rwcosta/json-schema-generator"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="repo-link"
+            >GitHub <span aria-hidden="true">↗</span></a
+          >
+          <button
+            id="theme"
+            class="theme-button"
+            aria-label="Ativar tema claro"
+            title="Alternar tema"
+          >
+            <span aria-hidden="true">☼</span>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">
+              <span class="status-dot"></span> SEU JSON. SEU NAVEGADOR.
+            </p>
+            <h1 id="page-title">Do exemplo ao <span>schema.</span></h1>
+            <p class="intro-copy">
+              Cole uma resposta de API. Gere um contrato para validar o que vem
+              depois.
+            </p>
+          </div>
+          <div class="dialect">
+            <span class="dialect-icon" aria-hidden="true">{✓}</span
+            ><span>JSON SCHEMA<strong>Draft 2019-09</strong></span>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="Gerador de JSON Schema">
+          <div class="workspace-toolbar">
+            <div class="workspace-label">
+              <span class="status-dot"></span> ÁREA DE TRABALHO
+              <span class="toolbar-divider">/</span>
+              <span class="local-label">Processamento local</span>
+            </div>
+            <div class="toolbar-actions">
+              <button id="example" class="text-button">
+                Carregar exemplo <span aria-hidden="true">↙</span></button
+              ><button id="clear" class="text-button">Limpar</button>
+            </div>
+          </div>
+          <div class="editor-grid">
+            <section class="editor-panel" aria-labelledby="input-title">
+              <div class="panel-header">
+                <div>
+                  <span class="step">01</span>
+                  <h2 id="input-title">JSON de entrada</h2>
+                </div>
+                <span class="file-tag">response.json</span>
+              </div>
+              <div id="input-editor" class="editor-host"></div>
+              <div class="panel-footer">
+                <span id="input-count">0 caracteres</span
+                ><span>JSON <span class="muted-dot">·</span> UTF-8</span>
+              </div>
+            </section>
+            <section
+              class="editor-panel output-panel"
+              aria-labelledby="output-title"
+            >
+              <div class="panel-header">
+                <div>
+                  <span class="step">02</span>
+                  <h2 id="output-title">JSON Schema</h2>
+                </div>
+                <span id="output-tag" class="file-tag">schema.json</span>
+              </div>
+              <div class="output-body">
+                <div id="output-editor" class="editor-host"></div>
+                <div id="output-empty" class="output-empty">
+                  <span class="empty-symbol" aria-hidden="true"
+                    >{ <span>↗</span> }</span
+                  ><strong>Um contrato começa com um exemplo.</strong>
+                  <p>
+                    Cole seu JSON e clique em Gerar Schema.<br />O resultado
+                    aparece aqui.
+                  </p>
+                  <span class="empty-dialect">DRAFT 2019-09</span>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <span id="output-count">Aguardando geração</span
+                ><span>Somente leitura <span aria-hidden="true">⌑</span></span>
+              </div>
+            </section>
+          </div>
+          <div class="action-bar">
+            <div class="generate-group">
+              <button id="generate" class="primary-button">
+                Gerar Schema <span aria-hidden="true">→</span></button
+              ><button id="cancel" class="secondary-button" hidden>
+                Cancelar</button
+              ><span class="shortcut"><kbd>Ctrl</kbd> + <kbd>Enter</kbd></span>
+            </div>
+            <div class="result-actions">
+              <button id="copy" class="secondary-button" disabled>
+                <span aria-hidden="true">▣</span> Copiar Schema</button
+              ><button id="download" class="secondary-button" disabled>
+                <span aria-hidden="true">↓</span> Baixar JSON
+              </button>
+            </div>
+          </div>
+        </section>
+        <div id="message" class="message" role="status" aria-live="polite">
+          <span aria-hidden="true">✓</span> Seus dados ficam aqui. Nenhum JSON é
+          enviado a um servidor.
+        </div>
+
+        <section id="regras" class="principles" aria-label="Como funciona">
+          <article>
+            <span class="principle-number">01 / PRIVACIDADE</span>
+            <h3>Local, do início ao fim.</h3>
+            <p>
+              Sem upload, cadastro ou histórico de respostas. A geração acontece
+              no seu navegador.
+            </p>
+          </article>
+          <article>
+            <span class="principle-number">02 / FIDELIDADE</span>
+            <h3>A estrutura que você enviou.</h3>
+            <p>
+              Nomes e ordem preservados. Inteiros, decimais, objetos e arrays
+              recebem seus próprios tipos.
+            </p>
+          </article>
+          <article>
+            <span class="principle-number">03 / CLAREZA</span>
+            <h3>Regras sem surpresa.</h3>
+            <p>
+              Campos observados são obrigatórios. Arrays heterogêneos usam
+              <code>anyOf</code>; arrays vazios, <code>items: {}</code>.
+            </p>
+          </article>
+        </section>
+
+        <details class="inference-details">
+          <summary>
+            Entenda os limites da inferência <span aria-hidden="true">+</span>
+          </summary>
+          <div>
+            <p>
+              Um exemplo descreve uma estrutura, mas não define todas as regras
+              de uma API. Revise o schema antes de usá-lo como contrato.
+            </p>
+            <ul>
+              <li>
+                Datas permanecem strings. Nenhum <code>format</code>,
+                <code>title</code> ou <code>additionalProperties</code> é
+                adicionado; campos extras continuam permitidos.
+              </li>
+              <li>
+                <code>10</code> gera <code>integer</code>; <code>10.00</code> e
+                <code>1e3</code> geram <code>number</code>. O padrão JSON Schema
+                valida o valor, não a escrita original do número.
+              </li>
+              <li>
+                Objetos diferentes em arrays viram alternativas de
+                <code>anyOf</code>, cada uma com seus campos em
+                <code>required</code>. Alternativas idênticas são deduplicadas.
+              </li>
+              <li>
+                <code>null</code> gera o tipo <code>null</code>. Objetos vazios
+                têm <code>required: []</code> e <code>properties: {}</code>.
+                Chaves duplicadas são rejeitadas.
+              </li>
+              <li>
+                Limites: entrada de 1 MiB, profundidade de 100 níveis, 100 mil
+                nós, saída de 10 MiB e processamento de até 5 segundos.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </main>
+      <footer>
+        <span
+          ><span class="footer-mark" aria-hidden="true">{ }</span> Menos
+          trabalho manual. Mais contratos confiáveis.</span
+        ><span
+          >Feito para desenvolvedores <span aria-hidden="true">↗</span></span
+        >
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
