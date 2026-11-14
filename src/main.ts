@@ -212,7 +212,7 @@ function generate(): void {
       current = true;
       updateActions();
       notify(
-        `Schema gerado em ${Math.round(performance.now() - started)} ms. Revise o resultado antes de usá-lo como contrato.`,
+        `Schema gerado em ${Math.round(performance.now() - started)} ms.`,
         "success",
       );
     };

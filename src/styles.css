@@ -150,22 +150,10 @@ nav a span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 51px 0 35px;
+  padding: 32px 0 26px;
   gap: 28px;
 }
-.eyebrow {
-  font:
-    10px ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    monospace;
-  letter-spacing: 1.5px;
-  margin: 0 0 16px;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+
 .status-dot {
   width: 6px;
   height: 6px;
@@ -175,52 +163,20 @@ nav a span {
   flex: none;
 }
 h1 {
-  font-size: clamp(30px, 3.4vw, 46px);
+  font-size: clamp(26px, 3vw, 36px);
   font-weight: 500;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   line-height: 1.15;
   margin: 0 0 16px;
 }
-h1 span {
-  color: var(--accent);
-}
+
 .intro-copy {
   font-size: 13px;
   color: var(--muted);
   line-height: 1.7;
   margin: 0;
 }
-.dialect {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  padding: 15px 20px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-.dialect-icon {
-  font:
-    22px ui-monospace,
-    monospace;
-  color: var(--accent);
-}
-.dialect > span:last-child {
-  font:
-    9px ui-monospace,
-    monospace;
-  letter-spacing: 1.1px;
-  color: var(--muted);
-}
-.dialect strong {
-  display: block;
-  font:
-    500 12px ui-monospace,
-    monospace;
-  color: var(--text);
-  letter-spacing: 0;
-  margin-top: 6px;
-}
+
 .workspace {
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -436,16 +392,7 @@ h2 {
   color: var(--muted);
   margin: 12px 0 25px;
 }
-.empty-dialect {
-  font:
-    8px ui-monospace,
-    monospace;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 5px 8px;
-}
+
 .panel-footer {
   height: 32px;
   border-top: 1px solid color-mix(in srgb, var(--line) 50%, transparent);
@@ -487,6 +434,15 @@ h2 {
   gap: 24px;
   align-items: center;
   min-height: 41px;
+}
+.generate-group {
+  align-items: flex-start;
+}
+.generate-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 .primary-button:hover {
   filter: brightness(1.08);
@@ -552,69 +508,7 @@ kbd {
 .message[data-kind="success"] {
   color: var(--accent);
 }
-.principles {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 44px;
-  padding: 35px 0 32px;
-}
-.principle-number {
-  font:
-    9px ui-monospace,
-    monospace;
-  letter-spacing: 1px;
-  color: var(--muted);
-}
-h3 {
-  font-size: 14px;
-  letter-spacing: -0.2px;
-  font-weight: 500;
-  margin: 13px 0 9px;
-}
-.principles p {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.9;
-  margin: 0;
-  max-width: 340px;
-}
-code {
-  font-family: ui-monospace, Consolas, monospace;
-  color: var(--text);
-  font-size: 0.95em;
-}
-.inference-details {
-  border-top: 1px solid var(--line);
-  font-size: 11px;
-  line-height: 1.8;
-  color: var(--muted);
-  margin-bottom: 25px;
-}
-.inference-details summary {
-  cursor: pointer;
-  padding: 17px 0;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-.inference-details summary::-webkit-details-marker {
-  display: none;
-}
-.inference-details summary span {
-  font-size: 17px;
-}
-.inference-details[open] summary {
-  color: var(--text);
-}
-.inference-details p {
-  margin-top: 0;
-}
-.inference-details ul {
-  padding-left: 18px;
-}
-.inference-details li {
-  margin: 8px 0;
-}
+
 footer {
   border-top: 1px solid var(--line);
   padding: 22px 0 29px;
@@ -637,7 +531,7 @@ footer > span {
 }
 @media (min-width: 1500px) {
   .intro {
-    padding-top: 60px;
+    padding-top: 40px;
   }
   .editor-host {
     height: 420px;
@@ -647,18 +541,11 @@ footer > span {
   .shell {
     padding: 0 28px;
   }
-  .shortcut {
-    display: none;
-  }
-  .principles {
-    gap: 24px;
-  }
+
   .panel-header {
     padding: 0 14px;
   }
-  .dialect {
-    padding: 13px;
-  }
+
   .action-bar {
     padding: 16px 14px;
   }
@@ -688,9 +575,7 @@ footer > span {
     gap: 16px;
     font-size: 11px;
   }
-  .rules-link {
-    display: none;
-  }
+
   .intro {
     padding: 35px 0 26px;
     display: block;
@@ -702,29 +587,7 @@ footer > span {
   .intro-copy {
     font-size: 12px;
   }
-  .dialect {
-    margin-top: 23px;
-    display: inline-flex;
-    padding: 9px 12px;
-    gap: 10px;
-  }
-  .dialect-icon {
-    font-size: 18px;
-  }
-  .dialect > span:last-child {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 8px;
-  }
-  .dialect strong {
-    margin: 0;
-    font-size: 10px;
-  }
-  .eyebrow {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
+
   .workspace-toolbar {
     padding: 8px 13px;
     flex-wrap: wrap;
@@ -777,6 +640,12 @@ footer > span {
   .generate-group {
     width: 100%;
   }
+  .generate-control {
+    flex: 1;
+  }
+  .generate-control .primary-button {
+    width: 100%;
+  }
   .primary-button {
     flex: 1;
     justify-content: center;
@@ -792,27 +661,7 @@ footer > span {
     font-size: 10px;
     min-height: 60px;
   }
-  .principles {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 21px 0 28px;
-  }
-  .principles article {
-    padding-left: 14px;
-    border-left: 1px solid var(--line);
-  }
-  .principles p {
-    max-width: none;
-  }
-  .principle-number {
-    font-size: 8px;
-  }
-  h3 {
-    margin: 9px 0 6px;
-  }
-  .inference-details {
-    margin-bottom: 8px;
-  }
+
   footer {
     font-size: 9px;
     flex-direction: column;
