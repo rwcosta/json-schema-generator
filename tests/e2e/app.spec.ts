@@ -10,6 +10,7 @@ const output = (page: Page) =>
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await expect(input(page)).toBeVisible();
+  await page.getByRole("button", { name: "Carregar exemplo" }).click();
 });
 
 test("generates the exact example, downloads it, marks stale results, and clears", async ({

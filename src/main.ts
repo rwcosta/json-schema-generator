@@ -72,7 +72,7 @@ applyTheme();
 const input = new EditorView({
   parent: element("input-editor"),
   state: EditorState.create({
-    doc: EXAMPLE,
+    doc: "",
     extensions: [
       basicSetup,
       json(),
